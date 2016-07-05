@@ -1,0 +1,29 @@
+.mainContainer {
+  padding-top:20px;
+}
+
+.slide-transition {
+  transition: all .5s ease;
+}
+.slide-enter,
+.slide-leave {
+  opacity: 0;
+  transform: translate3d(0, -1rem, 0);
+}
+
+.slide-up-transition {
+  transition: all .5s ease;
+}
+.slide-up-enter,
+.slide-up-leave {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+}
+
+.fade-transition {
+  transition: all .5s ease;
+}
+.fade-enter,
+.fade-leave {
+  opacity: 0;
+}
