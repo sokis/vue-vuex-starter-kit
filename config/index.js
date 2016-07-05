@@ -131,19 +131,4 @@ if (overrides) {
   debug('No environment overrides found, defaults will be used.')
 }
 
-
-
-// ------------------------------------
-// Entry Points
-// ------------------------------------
-const APP_ENTRY_PATH = ['babel-polyfill', config.utils_paths.client('index.js')]
-
-config.entry = {
-  app: config.globals.___DEV__
-    ? APP_ENTRY_PATH.concat('webpack-hot-middleware/client')
-    : APP_ENTRY_PATH,
-  vendor: config.compiler_vendor
-}
-
-
 export default config

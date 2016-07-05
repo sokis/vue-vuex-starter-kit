@@ -17,6 +17,10 @@ const webpackConfig = {
 	resolve: {
 		root: paths.client(),
 		extensions: ['', '.css', '.js', '.json', '.vue'],
+		alias: {
+			vx: paths.client('vuex')
+		},
+		modulesDirectories: ['node_modules']
 	},
 	module: {}
 }
@@ -122,38 +126,20 @@ will be removed in a future release.
 // ------------------------------------
 // JavaScript / JSON
 webpackConfig.module.loaders = [
-	
-	// {
-	// 	test: /\.(js|vue)$/,
-	// 	exclude: /node_modules/,
-	// 	loader: 'babel',
-	// 	query: {
-	// 		cacheDirectory: true,
-	// 		plugins: [
-	// 			// "add-module-exports",
-	// 			// "transform-async-to-generator",
-	// 			"transform-runtime"
-	// 		],
-	// 		presets: ['es2015', 'stage-0']
-	// 	}
-	// },
 	{
-		test: /\.vue$/,
-		loader: 'vue'
-	},
-	{
-		test: /\.js$/,
+		test: /\.(js)$/,
+		exclude: /node_modules/,
 		loader: 'babel',
-		exclude: /node_modules/
+		query: {
+			cacheDirectory: true,
+			plugins: [
+				"add-module-exports",
+				"transform-async-to-generator",
+				"transform-runtime"
+			],
+			presets: ['es2015', 'stage-0']
+		}
 	},
-	{
-		test: /\.json$/,
-		loader: 'json'
-	},
-	// {
-	// 	test: /\.html$/,
-	// 	loader: 'vue-html'
-	// },
 	{
 		test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
 		loader: 'url',
@@ -161,29 +147,16 @@ webpackConfig.module.loaders = [
 			limit: 10000,
 			name: '[name].[ext]?[hash:7]'
 		}
+	},
+	{
+		test: /\.vue$/,
+		loader: 'vue'
+	},
+	{
+		test: /\.json$/,
+		loader: 'json'
 	}
 ]
-
-
-// ------------------------------------
-// Vue
-// ------------------------------------
-// JavaScript / JSON
-
-const cssLoaders = (loaders => {
-  if (!__PROD__) {
-    return loaders.join('!')
-  }
-  const [first, ...rest] = loaders
-  return ExtractTextPlugin.extract(first, rest.join('!'))
-})(['vue-style-loader', 'css-loader?sourceMap'])
-
-webpackConfig.vue = {
-	loaders: {
-		css: cssLoaders,
-		js: 'babel'
-	}
-}
 
 
 // ------------------------------------
@@ -191,7 +164,16 @@ webpackConfig.vue = {
 // ------------------------------------
 // We use cssnano with the postcss loader, so we tell
 // css-loader not to duplicate minimization.
-const BASE_CSS_LOADER = 'css?sourceMap&-minimize'
+const BASE_CSS_LOADER = (loaders => {
+	if (!__PROD__) {
+		return loaders.join('!')
+	}
+	const [first, ...rest] = loaders
+	return ExtractTextPlugin.extract(first, rest.join('!'))
+})([
+	'vue-style-loader',
+	'css?sourceMap&-minimize'
+])
 
 // Add any packge names here whose styles need to be treated as CSS modules.
 // These paths will be combined into a single regex.
@@ -261,19 +243,6 @@ webpackConfig.postcss = [
 		sourcemap: true
 	})
 ]
-
-// File loaders
-/* eslint-disable */
-webpackConfig.module.loaders.push(
-	{ test: /\.woff(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
-	{ test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },
-	{ test: /\.otf(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype' },
-	{ test: /\.ttf(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
-	{ test: /\.eot(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
-	{ test: /\.svg(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
-	{ test: /\.(png|jpg)$/, loader: 'url?limit=8192' }
-)
-/* eslint-enable */
 
 // ------------------------------------
 // Finalize Configuration

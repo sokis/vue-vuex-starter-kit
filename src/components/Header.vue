@@ -13,7 +13,7 @@
 			return {
 				routes:[
 					{ text:"首页", link:"/"},
-					{ text:"关于", link:"/counter"}
+					{ text:"计数器", link:"/counter"}
 				]
 			}
 		}

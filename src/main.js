@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import App from 'App'
 import { routes, alias }  from './routes'
-import store from 'vuex/store'
 import { env } from 'vuex/getters'
 
 if (module.hot) {
@@ -13,7 +12,6 @@ Vue.config.debug = __DEV__
 
 // global mixins
 Vue.mixin({
-	store,
 	// vuex: {
 	// 	getters: { env }
 	// }

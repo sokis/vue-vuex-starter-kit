@@ -6,10 +6,12 @@
 
 <script>
 
+import store from 'vuex/store'
 import CoreLayout from './layouts/CoreLayout'
 
 export default {
   name: 'App',
+	store,
   components:{
 	  CoreLayout
   }

@@ -1,18 +1,32 @@
 <template>
-  <div class="duck">
-    <h4>Welcome!</h4>
-    <img
-      alt='This is a duck, because Vuex!'
-      :src='DuckImage' />
+    <div>
+      <h2 class="counterContainer">
+        Counter:
+        <span class="counter-green">
+          {{counter}}
+        </span>
+      </h2>
+      <button class='btn btn-default' @click="increment">
+        Increment
+      </button>
+      <button class='btn btn-default'  @click="doubleAsync">
+        Double (Async)
+      </button>
   </div>
 </template>
 
 <script>
+import { increment, doubleAsync } from 'vx/actions'
+import { counter } from 'vx/getters'
 
 export default {
-  data () {
-    return {
-      DuckImage: require('../assets/Duck.jpg')
+  vuex: {
+    getters: {
+      counter
+    },
+    actions: {
+      increment,
+      doubleAsync
     }
   }
 }

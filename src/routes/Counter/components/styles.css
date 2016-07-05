@@ -1,5 +1,11 @@
-.duck {
-  display: block;
-  width: 120px;
-  margin: 1.5rem auto;
+.counter {
+  font-weight: bold;
+}
+
+.counter-green {
+  color: rgb(25,200,25);
+}
+
+.counterContainer {
+  margin: 1em auto;
 }

@@ -2,5 +2,5 @@
 export default {
   name: 'home',
   exact: true,
-  component: resolve => require(['./components/HomeView.vue'], resolve)
+  component: resolve => require(['./components/HomeView'], resolve)
 }
