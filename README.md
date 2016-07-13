@@ -61,10 +61,23 @@ src
 ├── static
 ├── styles
 └── vuex
-    ├── actions
     ├── constants
-    ├── getters
-    ├── modules
     ├── plugins
-    └── types
  ```
+
+ `routes` 目录下面加入 modules 目录用于存放vuex 相关模块文件
+```
+src/routes
+├── Counter
+│   ├── components
+│   └── modules
+├── Home
+│   ├── assets
+│   └── components
+└── User
+    ├── components
+    └── routes
+        └── Login
+            ├── components
+            └── modules
+```
