@@ -1,21 +1,24 @@
 <template>
 	<div>
 		<h1>Vue Vuex Starter Kit</h1>
-		<ul>
-			<li v-for="l in routes"><a v-link="l.link">{{l.text}}</a></li>
-		</ul>
+		<div  class="left">
+			<v-navbar :routes="routes"></v-navbar>
+		</div>
 	</div>
 </template>
 <script>
+	import VNavbar from './Navbar'
+	import { routes } from '../routes'
+	
 	export default {
-		name: 'Header',
+		name: 'header',
 		data(){
 			return {
-				routes:[
-					{ text:"首页", link:"/"},
-					{ text:"计数器", link:"/counter"}
-				]
+				routes
 			}
+		},
+		components:{
+			VNavbar
 		}
 	}
 </script>

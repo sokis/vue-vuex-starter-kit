@@ -7,6 +7,7 @@ import ip from 'ip'
 const localip = ip.address()
 const debug = _debug('app:config')
 debug('Creating default configuration.')
+const threshold = 0
 
 // ========================================================
 // Default Configuration
@@ -28,6 +29,7 @@ const config = {
   // ----------------------------------
   server_host : localip, // use string 'localhost' to prevent exposure on local network
   server_port : process.env.PORT || 3000,
+  server_mock : !!argv.mock,
 
   // ----------------------------------
   // Compiler Configuration
@@ -58,7 +60,21 @@ const config = {
   coverage_reporters : [
     { type : 'text-summary' },
     { type : 'lcov', dir : 'coverage' }
-  ]
+  ],
+  coverage_check: {
+    global: {
+      statements: threshold,
+      branches: threshold,
+      functions: threshold,
+      lines: threshold
+    },
+    each: {
+      statements: threshold,
+      branches: threshold,
+      functions: threshold,
+      lines: threshold
+    }
+  }
 }
 
 /************************************************

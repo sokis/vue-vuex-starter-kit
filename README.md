@@ -16,7 +16,7 @@ $ npm start                     # 编译及启动
 
 如果一切正常，你将看到如下界面：
 
-
+<img src="http://i.imgur.com/zR7VRG6.png?2" />
 
 通常在开发中，主要使用`npm start` 来启动项目. 但是，这里也有提供你使用的其他Npm 脚本
 
@@ -48,4 +48,23 @@ $ npm start                     # 编译及启动
 └── tests                    # Unit tests
 ```
 
+`src` 目录
 
+```
+src
+├── components              # Reusable Presentational Components
+├── containers
+├── layouts                 # Components that dictate major page structure
+│   └── CoreLayout
+├── routes                  # Fractal sub-routes (** optional)
+│       └── routes          
+├── static
+├── styles
+└── vuex
+    ├── actions
+    ├── constants
+    ├── getters
+    ├── modules
+    ├── plugins
+    └── types
+ ```

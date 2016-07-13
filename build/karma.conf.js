@@ -17,8 +17,8 @@ const karmaConfig = {
     }
   ],
   singleRun: !argv.watch,
-  frameworks: ['mocha'],
-  reporters: ['mocha'],
+  frameworks: ['mocha', 'es6-shim'],
+  reporters: ['mocha', 'coverage'],
   preprocessors: {
     [`${config.dir_test}/test-bundler.js`]: ['webpack']
   },
@@ -49,19 +49,20 @@ const karmaConfig = {
     noInfo: true
   },
   coverageReporter: {
-    reporters: config.coverage_reporters
+    reporters: config.coverage_reporters,
+    check: config.coverage_check
   }
 }
 
-if (config.globals.__COVERAGE__) {
-  karmaConfig.reporters.push('coverage')
-  karmaConfig.webpack.module.preLoaders = [{
-    test: /\.(js|vue)$/,
-    include: new RegExp(config.dir_client),
-    loader: 'isparta',
-    exclude: /node_modules/
-  }]
-}
+// if (config.globals.__COVERAGE__) {
+//   karmaConfig.reporters.push('coverage')
+//   karmaConfig.webpack.module.preLoaders = [{
+//     test: /\.(js|vue)$/,
+//     include: new RegExp(config.dir_client),
+//     loader: 'isparta',
+//     exclude: /node_modules/
+//   }]
+// }
 
 // cannot use `export default` because of Karma.
 module.exports = (cfg) => cfg.set(karmaConfig)

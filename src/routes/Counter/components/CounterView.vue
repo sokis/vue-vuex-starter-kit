@@ -1,34 +1,29 @@
 <template>
-    <div>
-      <h2 class="counterContainer">
-        Counter:
-        <span class="counter-green">
+  <div>
+    <h2 class="counterContainer">
+      Counter:
+      <span class="counter-green">
           {{counter}}
         </span>
-      </h2>
-      <button class='btn btn-default' @click="increment">
+    </h2>
+    <button class='btn btn-default' @click="increment">
         Increment
       </button>
-      <button class='btn btn-default'  @click="doubleAsync">
+    <button class='btn btn-default' @click="doubleAsync">
         Double (Async)
       </button>
   </div>
 </template>
 
 <script>
-import { increment, doubleAsync } from 'vx/actions'
-import { counter } from 'vx/getters'
+
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  vuex: {
-    getters: {
-      counter
-    },
-    actions: {
-      increment,
-      doubleAsync
-    }
-  }
+  computed: {
+    ...mapGetters(['counter'])
+  },
+  methods: mapActions(['increment', 'doubleAsync'])
 }
 </script>
 

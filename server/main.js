@@ -9,6 +9,7 @@ import _debug from 'debug'
 import config from '../config'
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
+import mocking from './middleware/mocking'
 
 const debug = _debug('app:server')
 const paths = config.utils_paths
@@ -56,6 +57,17 @@ if (config.env === 'development') {
   // the web server and not the app server, but this helps to demo the
   // server in production.
   app.use(serve(paths.dist()))
+}
+
+
+
+// mocking .
+if (config.server_mock) {
+  app.use(mocking({
+    root: paths.base(),
+    matcher: /^\/apis\//,
+    reducer: null
+  }))
 }
 
 export default app
