@@ -1,31 +1,45 @@
 import Koa from 'koa'
-import convert from 'koa-convert'
+import logger from 'koa-logger'
 import webpack from 'webpack'
-import webpackConfig from '../build/webpack.config'
+import webpackConfig from '../.tools/build/webpack.config'
 import historyApiFallback from 'koa-connect-history-api-fallback'
+
 import serve from 'koa-static'
-import proxy from 'koa-proxy'
 import _debug from 'debug'
-import config from '../config'
+import config from '../.tools/config'
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
+
 import mocking from './middleware/mocking'
+import error from './middleware/error'
 
 const debug = _debug('app:server')
 const paths = config.utils_paths
 const app = new Koa()
 
+
+
+app.use(logger())
+app.use(error())
+
 // Enable koa-proxy if it has been enabled in the config.
 if (config.proxy && config.proxy.enabled) {
   app.use(convert(proxy(config.proxy.options)))
+
+} else if (config.server_mock) { // mocking .
+  app.use(mocking({
+    root: paths.base(),
+    matcher: /^\/apis\//,
+    reducer: null
+  }))
 }
 
-// This rewrites all routes requests to the root /index.html file
-// (ignoring file requests). If you want to implement isomorphic
-// rendering, you'll want to remove this middleware.
-app.use(convert(historyApiFallback({
-  verbose: false
-})))
+// // This rewrites all routes requests to the root /index.html file
+// // (ignoring file requests). If you want to implement isomorphic
+// // rendering, you'll want to remove this middleware.
+// app.use(convert(historyApiFallback({
+//   verbose: false
+// })))
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
@@ -39,11 +53,14 @@ if (config.env === 'development') {
   app.use(webpackDevMiddleware(compiler, publicPath))
   app.use(webpackHMRMiddleware(compiler))
 
+
   // Serve static assets from ~/src/static since Webpack is unaware of
   // these files. This middleware doesn't need to be enabled outside
   // of development since this directory will be copied into ~/dist
   // when the application is compiled.
   app.use(serve(paths.client('static')))
+
+
 } else {
   debug(
     'Server is being run outside of live development mode, meaning it will ' +
@@ -57,17 +74,6 @@ if (config.env === 'development') {
   // the web server and not the app server, but this helps to demo the
   // server in production.
   app.use(serve(paths.dist()))
-}
-
-
-
-// mocking .
-if (config.server_mock) {
-  app.use(mocking({
-    root: paths.base(),
-    matcher: /^\/apis\//,
-    reducer: null
-  }))
 }
 
 export default app

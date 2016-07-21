@@ -1,4 +1,4 @@
-import api from '../../../../api/counter'
+import api from '../../../api/counter'
 
 
 // ------------------------------------

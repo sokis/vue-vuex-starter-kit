@@ -7,7 +7,7 @@ const debug = _debug('app:karma')
 debug('Create configuration.')
 
 const karmaConfig = {
-  basePath: '../', // project root in relation to bin/karma.js
+  basePath: '../../', // project root in relation to bin/karma.js
   files: [
     {
       pattern: `./${config.dir_test}/test-bundler.js`,

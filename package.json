@@ -28,13 +28,13 @@
   },
   "betterScripts": {
     "compile": {
-      "command": "babel-node bin/compile",
+      "command": "babel-node .tools/bin/compile",
       "env": {
         "DEBUG": "app:*"
       }
     },
     "dev": {
-      "command": "nodemon --exec babel-node bin/server",
+      "command": "nodemon --exec babel-node .tools/bin/server",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
@@ -61,13 +61,13 @@
       }
     },
     "start": {
-      "command": "babel-node bin/server",
+      "command": "babel-node .tools/bin/server",
       "env": {
         "DEBUG": "app:*"
       }
     },
     "test": {
-      "command": "babel-node ./node_modules/karma/bin/karma start build/karma.conf",
+      "command": "babel-node ./node_modules/karma/bin/karma start .tools/build/karma.conf",
       "env": {
         "NODE_ENV": "test",
         "DEBUG": "app:*"
@@ -100,6 +100,7 @@
     "koa-connect-history-api-fallback": "^0.3.0",
     "koa-convert": "^1.2.0",
     "koa-proxy": "^0.6.0",
+    "koa-logger": "^2.0.0",
     "koa-static": "^3.0.0",
     "normalize.css": "^4.1.1",
     "postcss-browser-reporter": "^0.5.0",

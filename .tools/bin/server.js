@@ -1,5 +1,5 @@
 import config from '../config'
-import server from '../server/main'
+import server from '../../server/main'
 import _debug from 'debug'
 
 const debug = _debug('app:bin:server')
