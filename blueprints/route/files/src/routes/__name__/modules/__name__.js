@@ -13,7 +13,7 @@ const state = {
 // ------------------------------------
 // Getters
 // ------------------------------------
-export const gettes = {
+export const getters = {
 
 };
 
@@ -33,7 +33,7 @@ export const mutations = {
 
 export default {
     state,
-    gettes,
+    getters,
     actions,
     mutations
 };
