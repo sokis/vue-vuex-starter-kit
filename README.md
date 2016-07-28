@@ -42,11 +42,7 @@ $ npm start                     # 编译及启动
 
 ```
 .
-├──.tools
-│   ├── bin                  # 编译和服务启动脚本
-│   ├── build                # 所有构建及测试相关配置
-│   └── config               # 项目相关配置   
-├── server                   # 基于Koa.js 搭建的本地应用服务器 (使用webpack中间件)
+├── config                   # vuex-cli-webpack 配置文件
 ├── src                      # 源码
 └── tests                    # 单元测试
 ```
@@ -90,4 +86,5 @@ src/routes
 该工程，可以用 [`vuex-cli`](https://github.com/sokis/vuex-cli) 快速创建。
 
 ## 感谢
+["Vuex CLI Webpack"](https://github.com/sokis/vuex-cli-webpack) 
 ["React Redux Starter Kit"](https://github.com/davezuko/react-redux-starter-kit) 
