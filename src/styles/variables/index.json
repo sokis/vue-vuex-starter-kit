@@ -1,0 +1,9 @@
+{
+  "progress":"#FFEB3B",
+  "primary": "#39b983",
+  "secondary": "#34495E",
+  "success": "#3ABA58",
+  "error": "#BA3A3A",
+  "warning": "#BA783A",
+  "background": "#FBF9FE"
+}
