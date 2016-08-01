@@ -1,6 +1,6 @@
 {
   "name": "vue-vuex-starter-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "vue",
     "vue.js",
@@ -73,7 +73,7 @@
       }
     },
     "test": {
-      "command": "babel-node ./node_modules/karma/bin/karma start tests/karma.conf",
+      "command": "babel-node ./node_modules/karma/bin/karma start tests/unit/karma.conf",
       "env": {
         "NODE_ENV": "test",
         "DEBUG": "app:*"
@@ -95,7 +95,15 @@
   "devDependencies": {
     "vuex-cli-webpack": "^1.0.10",
     "nodemon": "^1.10.0",
-    "better-npm-run": "0.0.9"
+    "better-npm-run": "0.0.9",
+    "karma": "^1.1.1",
+    "karma-coverage": "^1.0.0",
+    "karma-es6-shim": "^1.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0"
   },
   "repository": {
     "type": "git",
