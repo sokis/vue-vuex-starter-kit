@@ -2,7 +2,7 @@
 // webpack.config.js
 // ======================================================
 module.exports  = {
-	entry: {
-		app: './src/main.js'
-	}
+	// entry: {
+	// 	app: './src/main.js'
+	// }
 }
