@@ -89,8 +89,10 @@
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
     "vuex": "^2.0.0-rc.3",
+    "vuex-cli-webpack": "^1.0.12",
     "vuex-localstorage": "^0.2.0",
-    "vuex-promise": "^2.0.0-rc.1"
+    "vuex-promise": "^2.0.0-rc.1",
+    "humps":"^1.1.0"
   },
   "devDependencies": {
     "vuex-cli-webpack": "^1.0.10",
