@@ -34,13 +34,13 @@
   },
   "betterScripts": {
     "compile": {
-      "command": "./node_modules/.bin/vuex-webpack-compile",
+      "command": "vuex-webpack-compile",
       "env": {
         "DEBUG": "app:*"
       }
     },
     "dev": {
-      "command": "nodemon --exec ./node_modules/.bin/vuex-webpack-server",
+      "command": "nodemon --exec vuex-webpack-server",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
@@ -67,7 +67,7 @@
       }
     },
     "start": {
-      "command": "./node_modules/.bin/vuex-webpack-server",
+      "command": "vuex-webpack-server",
       "env": {
         "DEBUG": "app:*"
       }
