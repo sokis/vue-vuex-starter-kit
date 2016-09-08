@@ -1,6 +1,7 @@
-# vue-vuex-starter-kit
-Vuex 版本的 ["React Redux Starter Kit"](https://github.com/davezuko/react-redux-starter-kit)实现。 
-整合Vue + Vuex + Vue-Router
+# Vue Vuex Starter Kit
+
+整合Vue + Vuex + Vue-Router。内置webpack配置，基于Koajs搭建开发服务框架，内置基本挡板中间件。
+可以方便快速搭建自己的vuex应用程序。
 
 
 ## 开始
@@ -16,21 +17,22 @@ $ npm start                     # 编译及启动
 
 如果一切正常，你将看到如下界面：
 
-
+<img src="http://i.imgur.com/zR7VRG6.png?2" />
 
 通常在开发中，主要使用`npm start` 来启动项目. 但是，这里也有提供你使用的其他Npm 脚本
 
-|`npm run <script>`|Description|
+|`npm run <script>`|描述|
 |------------------|-----------|
-|`start`|Serves your app at `localhost:3000`. HMR will be enabled in development.|
-|`compile`|Compiles the application to disk (`~/dist` by default).|
-|`dev`|Same as `npm start`, but enables nodemon for the server as well.|
-|`dev:no-debug`|Same as `npm run dev` but disables devtool instrumentation.|
-|`test`|Runs unit tests with Karma and generates a coverage report.|
-|`test:dev`|Runs Karma and watches for changes to re-run tests; does not generate coverage reports.|
-|`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
-|`deploy:dev`|Same as `deploy` but overrides `NODE_ENV` to "development".|
-|`deploy:prod`|Same as `deploy` but overrides `NODE_ENV` to "production".|
+|`start`|启动App 本地开发服务，该环境下HMR也将运行。 `localhost:3000`.|
+|`compile`|编译App到`dist`目录 (默认情况下在`~/dist`).|
+|`dev`|同 `npm start`|
+|`dev:mock`|同`npm run dev`，但是会加载mocking中间件|
+|`dev:no-debug`|同`npm run dev`，但是会禁用控制台输出|
+|`test`|运行Karma单元测试，并生成`coverage`代码覆盖测试|
+|`test:dev`|同`npm run test`，但会开启代码监控。并且不会生成代码覆盖测试|
+|`deploy`|运行测试，并且生成编译后的代码|
+|`deploy:dev`|同 `deploy`，但是环境变量 `NODE_ENV` 为 "development".|
+|`deploy:prod`|同 `deploy`，但是环境变量 `NODE_ENV` 为  "production".|
 |`lint`|Lint all `.js` files.|
 |`lint:fix`|Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
 
@@ -40,12 +42,49 @@ $ npm start                     # 编译及启动
 
 ```
 .
-├── bin                      # Build/Start scripts
-├── build                    # All build-related configuration
-├── config                   # Project configuration settings
-├── server                   # Koa application (uses webpack middleware)
-├── src                      # Application source code
-└── tests                    # Unit tests
+├── config                   # vuex-cli-webpack 配置文件
+├── src                      # 源码
+└── tests                    # 单元测试
+```
+
+`src` 目录
+
+```
+src
+├── components              # 公用组件
+├── containers
+├── layouts                 # 此处定义页面骨架组件
+│   └── CoreLayout
+├── routes                  # 路由及子路由配置
+│       └── routes          
+├── static
+├── styles
+└── vuex
+    ├── constants
+    ├── plugins
+ ```
+
+ `routes` 目录下面加入 modules 目录用于存放vuex 相关模块文件
+```
+src/routes
+├── Counter
+│   ├── components
+│   └── modules
+├── Home
+│   ├── assets
+│   └── components
+└── User
+    ├── components
+    └── routes
+        └── Login
+            ├── components
+            └── modules
 ```
 
 
+## 备注
+该工程，可以用 [`vuex-cli`](https://github.com/sokis/vuex-cli) 快速创建。
+
+## 感谢
+["Vuex CLI Webpack"](https://github.com/sokis/vuex-cli-webpack) 
+["React Redux Starter Kit"](https://github.com/davezuko/react-redux-starter-kit) 
