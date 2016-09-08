@@ -2,7 +2,8 @@
 const createRoutes = {
 	routes: {
 		'/': require("./Home"),
-		'/counter': require("./Counter")
+		'/counter': require("./Counter"),
+		'/user': require("./User")
 	},
 
 	alias: {

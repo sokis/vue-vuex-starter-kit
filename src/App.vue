@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<core-layout></core-layout>
+		<core-layout>
+		</core-layout>
 	</div>
 </template>
 
@@ -17,3 +18,4 @@ export default {
   }
 }
 </script>
+<style src="./styles/app.css"></style>
