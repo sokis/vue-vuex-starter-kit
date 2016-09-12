@@ -4,6 +4,7 @@
     <img
       alt='This is a duck, because Vuex!'
       :src='DuckImage' />
+      111010
   </div>
 </template>
 
