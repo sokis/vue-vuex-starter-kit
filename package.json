@@ -99,7 +99,7 @@
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.4",
     "vue-style-loader": "^1.0.0",
-    "vuex-cli-webpack": "^2.0.0-beta2"
+    "vuex-cli-webpack": "^2.0.0-beta3"
   },
   "repository": {
     "type": "git",
