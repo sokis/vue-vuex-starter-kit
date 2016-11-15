@@ -1,6 +1,5 @@
 // 中间件
-import createLogger from 'vuex/logger'
-
+import createLogger from 'vuex/dist/logger'
 
 const plugins = []
 

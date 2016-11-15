@@ -1,8 +1,13 @@
 // Sync route definition
-import subRoutes from './routes'
+import children from './routes'
 
+// Sync route definition
 export default {
-  title: '用户管理',
+  path: '/user',
   component: resolve => require(['./components/UserView'], resolve),
-  subRoutes
+  children,
+  meta: {
+    title: '用户',
+    icon: 'user'
+  }
 }

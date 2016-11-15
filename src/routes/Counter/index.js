@@ -1,7 +1,9 @@
 // Sync route definition
 export default {
-  name: 'counter',
-  title: '计数器',
-  exact: true,
-  component: resolve => require(['./components/CounterView'], resolve)
+  path: '/counter',
+  component: resolve => require(['./components/CounterView'], resolve),
+  meta: {
+    title: '计数器',
+    icon: 'counter'
+  }
 }

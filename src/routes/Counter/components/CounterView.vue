@@ -16,15 +16,15 @@
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
 
-import { mapActions, mapGetters } from 'vuex'
+  export default {
+    computed: {
+      ...mapGetters(['counter'])
+    },
+    methods: mapActions(['increment', 'doubleAsync'])
+  }
 
-export default {
-  computed: {
-    ...mapGetters(['counter'])
-  },
-  methods: mapActions(['increment', 'doubleAsync'])
-}
 </script>
 
 <style src="./styles.css"></style>

@@ -1,8 +1,10 @@
 // ======================================================
 // webpack.config.js
 // ======================================================
-module.exports  = {
-	// entry: {
-	// 	app: './src/main.js'
-	// }
+module.exports = {
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
+  }
 }
