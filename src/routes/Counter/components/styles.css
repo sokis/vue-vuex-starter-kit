@@ -3,9 +3,13 @@
 }
 
 .counter-green {
-  color: rgb(25,200,25);
+  color: rgb(25, 200, 25);
 }
 
 .counterContainer {
   margin: 1em auto;
+}
+
+.btn {
+  border: 1px solid #ccc
 }

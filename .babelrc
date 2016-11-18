@@ -5,13 +5,14 @@
 // module.hot is disabled), so keeping it and related plugins contained
 // within webpack helps prevent unexpected errors.
 {
-	"presets": [
-		"es2015",
-		"stage-0"
-	],
-	"plugins": [
-		"add-module-exports",
-		"transform-async-to-generator",
-		"transform-runtime"
-	]
+  "presets": [
+    "es2015",
+    "stage-0"
+  ],
+  "plugins": [
+    "add-module-exports",
+    "transform-async-to-generator",
+    "transform-runtime"
+  ],
+  "comments": false
 }

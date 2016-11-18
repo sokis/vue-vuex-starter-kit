@@ -82,19 +82,24 @@
   },
   "dependencies": {
     "history": "^2.0.0",
+    "normalizr": "^2.2.1",
     "vue": "^2.0.5",
     "vue-router": "^2.0.2",
+    "vuex-actions": "^1.1.1",
     "vuex-localstorage": "^0.3.0",
-    "vuex-promise": "^2.0.0-rc.3"
+    "vuex-promise": "^2.0.0-rc.3",
+    "vuex-router-sync": "^3.0.0"
   },
   "devDependencies": {
     "better-npm-run": "0.0.9",
-    "nodemon": "^1.10.0",
     "eslint": "^3.10.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-promise": "^3.3.2",
+    "nodemon": "^1.10.0",
+    "query-string": "^4.2.3",
+    "string-template": "^1.0.0",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.4",

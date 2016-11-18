@@ -1,48 +1,34 @@
 import { createAction, handleAction } from 'vuex-actions'
-import * as API from 'apis/counter'
+import * as API from 'apis/user/list'
 
 // ------------------------------------
 // States
 // ------------------------------------
 const state = {
-  fetching: false,
-  counter: 0
+  list: []
 }
 
 // ------------------------------------
 // Getters
 // ------------------------------------
 const getters = {
-  fetching: state => state.fetching,
-  counter: state => state.counter
+  userList: state => state.list.users
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const actions = {
-  increment: createAction(API.INCREMENT),
-  doubleAsync: createAction(API.DOUBLE_ASYNC, API.doubleAsync)
+  list: createAction(API.USER_LIST, API.list)
 }
 
 // ------------------------------------
 // Mutations
 // ------------------------------------
 const mutations = {
-  [API.INCREMENT]: handleAction((state, mutation) => {
-    state.counter += 1
-  }),
-
-  [API.DOUBLE_ASYNC]: handleAction({
-    pending(state) {
-      state.fetching = true
-    },
+  [API.USER_LIST]: handleAction({
     success(state, mutation) {
-      state.fetching = false
-      state.counter += mutation
-    },
-    error(state) {
-      state.fetching = false
+      state.list = mutation.entities
     }
   })
 }

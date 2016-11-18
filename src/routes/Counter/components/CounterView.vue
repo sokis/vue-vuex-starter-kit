@@ -3,7 +3,7 @@
     <h2 class="counterContainer">
       Counter:
       <span class="counter-green">
-          {{counter}}
+          {{counter}} {{fetching}}
         </span>
     </h2>
     <button class='btn btn-default' @click="increment">
@@ -20,7 +20,7 @@
 
   export default {
     computed: {
-      ...mapGetters(['counter'])
+      ...mapGetters(['counter', 'fetching'])
     },
     methods: mapActions(['increment', 'doubleAsync'])
   }

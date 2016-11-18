@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import store from 'store/store'
+  import store from 'store'
   import CoreLayout from './layouts/CoreLayout'
 
   export default {

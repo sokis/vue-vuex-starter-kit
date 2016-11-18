@@ -1,35 +1,26 @@
 // ------------------------------------
-// Constants
-// ------------------------------------
-// export const ADD_USER = 'ADD_USER'
-
-// ------------------------------------
 // States
 // ------------------------------------
-const state = {
-}
+const state = {}
 
 // ------------------------------------
 // Getters
 // ------------------------------------
-export const gettes = {
-}
+const getters = {}
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-export const actions = {
-}
+const actions = {}
 
 // ------------------------------------
 // Mutations
 // ------------------------------------
-export const mutations = {
-}
+const mutations = {}
 
 export default {
   state,
-  gettes,
+  getters,
   actions,
   mutations
 }

@@ -3,7 +3,7 @@
     <li v-for="route in _routes">
       <router-link :to="father + route.path">{{ route.title }}</router-link>
       <template v-if="route.children">
-        <v-navbar :father="route.path" :routes="route.children"></v-navbar>
+        <v-navbar :father="route.path ? route.path + '/' : ''" :routes="route.children"></v-navbar>
       </template>
     </li>
   </ul>
@@ -43,3 +43,10 @@
   }
 
 </script>
+
+<style>
+  ul {
+    padding-left: 20px
+  }
+
+</style>

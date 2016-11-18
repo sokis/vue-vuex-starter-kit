@@ -59,9 +59,9 @@ src
 │       └── routes          
 ├── static
 ├── styles
-└── vuex
+└── store
     ├── constants
-    ├── plugins
+    └── plugins
  ```
 
  `routes` 目录下面加入 modules 目录用于存放vuex 相关模块文件
