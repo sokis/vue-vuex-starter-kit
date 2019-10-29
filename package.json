@@ -92,7 +92,7 @@
   },
   "devDependencies": {
     "better-npm-run": "0.0.9",
-    "eslint": "^3.10.1",
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-babel": "^3.3.0",
