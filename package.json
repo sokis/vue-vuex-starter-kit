@@ -30,7 +30,9 @@
     "test:dev": "npm run test -- --watch",
     "deploy": "better-npm-run deploy",
     "deploy:dev": "better-npm-run deploy:dev",
-    "deploy:prod": "better-npm-run deploy:prod"
+    "deploy:prod": "better-npm-run deploy:prod",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "betterScripts": {
     "compile": {
@@ -88,7 +90,8 @@
     "vuex-actions": "^1.1.1",
     "vuex-localstorage": "^0.3.0",
     "vuex-promise": "^2.0.0-rc.3",
-    "vuex-router-sync": "^3.0.0"
+    "vuex-router-sync": "^3.0.0",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "better-npm-run": "0.0.9",
@@ -113,5 +116,6 @@
   "bugs": {
     "url": "https://github.com/sokis/vue-vuex-starter-kit/issues"
   },
-  "homepage": "https://github.com/sokis/vue-vuex-starter-kit#readme"
+  "homepage": "https://github.com/sokis/vue-vuex-starter-kit#readme",
+  "snyk": true
 }
