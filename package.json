@@ -83,7 +83,7 @@
   "dependencies": {
     "history": "^2.0.0",
     "normalizr": "^2.2.1",
-    "vue": "^2.0.5",
+    "vue": "^3.0.0",
     "vue-router": "^2.0.2",
     "vuex-actions": "^1.1.1",
     "vuex-localstorage": "^0.3.0",
